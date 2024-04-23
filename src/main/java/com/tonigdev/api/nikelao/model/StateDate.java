@@ -13,12 +13,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name = "nikelao_state_date")
-@Getter @Setter @RequiredArgsConstructor
+@Getter @Setter @NoArgsConstructor
 public class StateDate implements Serializable{
 
 	private static final long serialVersionUID = 1993285011329611971L;

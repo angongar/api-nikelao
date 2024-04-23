@@ -7,36 +7,27 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="nikelao_dates")
+@Table(name = "news")
 @Getter @Setter @NoArgsConstructor
-public class Dates implements Serializable{
+public class News implements Serializable{
 
-	private static final long serialVersionUID = 4523112647136391108L;
-
+	private static final long serialVersionUID = -5833546340803181176L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+	@Column(name = "title", nullable = false)
+	private String title;
 	@Column(name = "date", nullable = false)
 	private String date;
+	@Column(name = "content", nullable = false)
+	private String content;
 	
-	@Column(name = "rating", nullable = true)
-	private Long rating;
-	
-	@ManyToOne
-	@JoinColumn(name = "client_id", nullable = false)
-	private Clients client;
-	
-	@ManyToOne
-	@JoinColumn(name = "state_date_id", nullable = false)
-	private StateDate stateDate;
+
 }

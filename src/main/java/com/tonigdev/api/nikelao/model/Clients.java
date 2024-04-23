@@ -13,12 +13,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name = "nikelao_clients")
-@Getter @Setter @RequiredArgsConstructor
+@Getter @Setter @NoArgsConstructor
 public class Clients implements Serializable{
 
 	private static final long serialVersionUID = 2190630138452686829L;
