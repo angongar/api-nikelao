@@ -2,6 +2,8 @@ package com.tonigdev.api.nikelao.model;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,7 +14,6 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Entity
@@ -34,9 +35,15 @@ public class Dates implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name = "client_id", nullable = false)
+	@JsonIgnore // Evita la serialización de este campo para evitar bucles infinitos
 	private Clients client;
 	
 	@ManyToOne
 	@JoinColumn(name = "state_date_id", nullable = false)
 	private StateDate stateDate;
+	
+	
+	@ManyToOne
+	@JoinColumn(name = "horary_id", nullable = false)
+	private Horary horary;
 }

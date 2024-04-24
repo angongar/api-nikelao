@@ -1,6 +1,5 @@
 package com.tonigdev.api.nikelao.model;
 
-import java.io.Serializable;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -16,26 +15,23 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "nikelao_state_date")
+@Table(name = "nikelao_horary")
 @Getter @Setter @NoArgsConstructor
-public class StateDate implements Serializable{
-
-	private static final long serialVersionUID = 1993285011329611971L;
-
+public class Horary {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "state_name", unique = true, nullable = false)
-	private String stateName;
+	@Column(name = "hour", nullable = false)
+	private String hour;
 	
-	@OneToMany(mappedBy = "stateDate", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "horary", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JsonIgnore // Evita la serialización de este campo para evitar bucles infinitos
 	private Set<Dates> dates;
 	
-
+	
 }
